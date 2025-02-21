@@ -1,4 +1,4 @@
-export default {
+const data: { questions: Question[]; results: Result[] } = {
   questions: [
     {
       q: 'What is 2 + 2?',
@@ -74,4 +74,20 @@ export default {
       desc: 'Studying has definitely paid off for you!',
     },
   ],
+}
+export default data
+type Answer = {
+  text: string
+  is_correct: boolean
+}
+type Question = {
+  q: string
+  answers: Answer[]
+}
+
+type Result = {
+  min: number
+  max: number
+  title: string
+  desc: string
 }
