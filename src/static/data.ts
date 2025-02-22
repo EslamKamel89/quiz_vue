@@ -80,12 +80,12 @@ type Answer = {
   text: string
   is_correct: boolean
 }
-type Question = {
+export type Question = {
   q: string
   answers: Answer[]
 }
 
-type Result = {
+export type Result = {
   min: number
   max: number
   title: string
