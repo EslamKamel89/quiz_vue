@@ -1,13 +1,22 @@
 <template>
   <div class="ctr">
-    <QuestionsComp
-      v-if="questionsAnswered < questions.length"
-      :questions
-      :questions-answered="questionsAnswered"
-      @question-answered-event="handleQuestionAnswered"
-    />
-    <ResultComp v-else :questionsAnswered :totalCorrect :results />
-    <button type="button" class="reset-btn" @click="reset">Reset</button>
+    <transition name="fade" mode="out-in">
+      <QuestionsComp
+        v-if="questionsAnswered < questions.length"
+        :questions
+        :questions-answered="questionsAnswered"
+        @question-answered-event="handleQuestionAnswered"
+      />
+      <ResultComp v-else :questionsAnswered :totalCorrect :results />
+    </transition>
+    <button
+      v-if="questionsAnswered == questions.length"
+      type="button"
+      class="reset-btn"
+      @click="reset"
+    >
+      Reset
+    </button>
   </div>
 </template>
 
